@@ -1,2 +1,2 @@
-# cipher-attack
-Using Genetic Algorithm to break the Caesar cipher 
+# Documentation in progress
+Come back in a few days :P
