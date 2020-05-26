@@ -171,43 +171,43 @@ void simulatedAnnealing(char key[][27] , double &bestFitness, int n) {
     char pMsg[n];
     
     std::random_shuffle( s[0], s[0]+(26*sizeof(char)) );
-	greedy(s, 0, n);
+    greedy(s, 0, n);
     decrypt(0, s, pMsg, n);
     double currBest = cost(pMsg,n);
     
     double T = 100;
-	double Tmin = 0.001;
-	int maxTrials = 100;
+    double Tmin = 0.001;
+    int maxTrials = 100;
 
     double bestCost = std::numeric_limits<double>::max();
     char best[1][26+1] = {"xxxxxxxxxxxxxxxxxxxxxxxxxx"};
-	
+    
     while(T>Tmin){
 
-		double trials = 0.0;
-		double changes = 0.0;
-		double equilibrium = 0.0;
-		
-		while(trials < maxTrials) {
-			
+        double trials = 0.0;
+        double changes = 0.0;
+        double equilibrium = 0.0;
+        
+        while(trials < maxTrials) {
+            
             trials++;
-			nextNeighbor(s,t);
+            nextNeighbor(s,t);
 
             decrypt(0, t, pMsg, n);
-			double currSol = cost(pMsg,n);
-			double delta = currSol - currBest;
-		
+            double currSol = cost(pMsg,n);
+            double delta = currSol - currBest;
+        
             // Updates global best if found a better key
-		    if(currSol < bestCost) {
+            if(currSol < bestCost) {
                 
                 bestCost = currSol;
                 
                 #pragma unroll
                 for(int i=0;i<26;i++) best[0][i] = t[0][i];
 
-		    }
+            }
 
-		    if(delta <= 0) {
+            if(delta <= 0) {
                 
                 changes++;
                 currBest = currSol;
@@ -215,7 +215,7 @@ void simulatedAnnealing(char key[][27] , double &bestFitness, int n) {
                 #pragma unroll
                 for(int i=0;i<26;i++) s[0][i] = t[0][i];
 
-		    } 
+            } 
             else {
                 
                 double e = 1.0/exp(delta/T);
@@ -231,13 +231,13 @@ void simulatedAnnealing(char key[][27] , double &bestFitness, int n) {
 
                 }
             }		
-		} // Trials loop
+        } // Trials loop
 
         // Cooling schedule
-		equilibrium = (changes*1.0)/(trials*1.0);
-		double k = ((equilibrium>1)?equilibrium/100.0:equilibrium)*0.25;
-		T *= 0.60 + k; 
-	
+        equilibrium = (changes*1.0)/(trials*1.0);
+        double k = ((equilibrium>1)?equilibrium/100.0:equilibrium)*0.25;
+        T *= 0.60 + k; 
+    
     }
 
     #pragma unroll
