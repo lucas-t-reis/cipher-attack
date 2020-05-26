@@ -1,0 +1,1 @@
+plaintext/LOTR.txt key elements retrieved 2 original to decrypted text similarity 0.0975789
