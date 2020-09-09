@@ -22,7 +22,7 @@ of making any attempt to read the string fail if you don't have the original key
 For this project, I used Peter's Norvig fusion tables with [ngram](https://en.wikipedia.org/wiki/N-gram) frequencies up until the 5gram - more than that significantly increased the processing overhead. Google has discontinued fusion tables but luckily I kept backup files of 2gram ~  9gram. These frequency tables were gathered using Google Books corpus by Norvig himself. Due to GitHub's native size limit I can't upload them here, but for all intents and purposes if you need them feel free to contact me.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/lucas-t-reis/cipher-attack/master/assets/subscipher.png" alt="Image taken from Wikipedia's substitution cipher page">
+    <img src="https://raw.githubusercontent.com/lucas-t-reis/cipher-attack/master/assets/subscipher.png" alt="Image taken from Wikipedia's substitution cipher page">
 </p>
 
 ## Problem Definition
@@ -40,3 +40,6 @@ For this project, I used Peter's Norvig fusion tables with [ngram](https://en.wi
 <p align="center">
 <img src="https://raw.githubusercontent.com/lucas-t-reis/cipher-attack/master/assets/cost.svg" alt="Substitution Cipher Cost Function">
 </p>
+
+### Credits
+Roation image taken from [jackylons](https://jacklyons.me/bonfire-caesars-cipher) post on Ceasar cipher
